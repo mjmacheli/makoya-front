@@ -15,7 +15,7 @@ const Login = () => {
 
   const [ password, setPassword] = useState('')
 
-  const url = `${process.env.URL}user/login`
+  const url = `https://gentle-savannah-90866.herokuapp.com/user/login`
   
   const validateForm = () => username.length > 0 && password.length > 0
   
