@@ -21,7 +21,7 @@ class Dashboard extends Component {
   componentWillMount() {
     _.times( 2 , () => {
       
-      fetch(`${process.env.URL}/user/companies`, {
+      fetch(`https://gentle-savannah-90866.herokuapp.com/user/companies`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -39,7 +39,7 @@ class Dashboard extends Component {
     }
     
 
-      fetch(`${process.env.URL}/user/employees`, {
+      fetch(`https://gentle-savannah-90866.herokuapp.com/user/employees`, {
          method: 'POST',
          mode: 'cors',
          headers: {
