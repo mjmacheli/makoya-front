@@ -5,7 +5,6 @@ import './Event.scss';
 import { Card, Icon, Image } from 'semantic-ui-react'
 
 const Event = ({props}) => {
-  console.log(props)
   return (
     <Card centered={true}>
     <Image src={props.image} wrapped ui={false} />
