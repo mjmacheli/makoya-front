@@ -4,7 +4,9 @@ import React, {useState, Fragment} from 'react'
 
 import { useHistory } from 'react-router-dom'
 
-import { Search, Grid } from 'semantic-ui-react'
+import { Search, Grid, Container } from 'semantic-ui-react'
+
+import './EmployeeSearch.scss'
 
 const initialState = { isLoading: false, results: [], value: '' }
 
@@ -61,27 +63,28 @@ const EmployeeSearch = (props) => {
   }
 
   return (
-    <Fragment>
-      <Grid>
-        <Grid.Column width={6}>
-          <Search
-          fluid
-            loading={isLoading}
-            className='centerSearch' 
-            size='massive' 
-            centered='true'
-            placeholder={`search in ${company.title}`}
-            onResultSelect={handleResultSelect}
-            onSearchChange={_.debounce(handleSearchChange, 500, {
-              leading: true,
-            })}
-            results={results}
-            value={value}
-            {...props}
-          />
+    <Grid  centered columns='equal'>
+        <Grid.Column width={8}>
+          <Container text>
+            <Search
+              fluid
+              loading={isLoading}
+              className='searchBar' 
+              size='massive' 
+              centered='true'
+              selectFirstResult
+              placeholder={`search in ${company.title}`}
+              onResultSelect={handleResultSelect}
+              onSearchChange={_.debounce(handleSearchChange, 500, {
+                leading: true,
+              })}
+              results={results}
+              value={value}
+              {...props}
+            />
+          </Container>
         </Grid.Column>
       </Grid>
-    </Fragment>
   )
 }
 

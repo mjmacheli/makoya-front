@@ -4,16 +4,22 @@ import Company from '../Company/Company'
 
 import './Profile.scss';
 
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Grid } from 'semantic-ui-react'
 
 const Profile = ({location}) => {
 
   const { result } = location['state']
   
   return (
-    <Fragment as='div' className=''>
-      <Company className={null}/>
-      <Card>
+
+    <Grid  centered columns='equal'>
+      <Grid.Column width={8}>
+      <Company className='searchBar'/>
+      <Card 
+      centered 
+      raised 
+      className='cardStyles'
+      >
       <Image src={result.image} wrapped ui={false} />
         <Card.Content>
           <Card.Header>{result.title}</Card.Header>
@@ -32,7 +38,8 @@ const Profile = ({location}) => {
       </Card.Content>
       </Card>
    
-    </Fragment>
+    </Grid.Column>
+    </Grid>
   )
 }
 
