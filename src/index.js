@@ -3,22 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 
 
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Login from './Login/Login'
-import Dashboard from './Dashboard/Dashboard'
-import Event from './Event/Event'
 
+import Profile from './Profile/Profile'
+
+import Company from './Company/Company'
+
+import EmployeeSearch from './EmployeeSearch/EmployeeSearch'
 
 import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
   <Router>
-      <Route path='/' component={Login} exact/>
-      <Route path='/home' component={Login} exact/>
-      <Route path='/dashboard' component={Dashboard} exact/>
-      <Route path='/user' component={Event} exact/>
+    <Switch>
+        <Route path='/' component={Login} exact/>
+        <Route path='/home' component={Login} exact/>
+        <Route path='/employeesearch' component={EmployeeSearch} exact />
+        <Route path='/user' component={Event} exact/>
+        <Route path='/company' component={Company} exact/>
+        <Route path='/profile' component={Profile} exact/>
+      </Switch>
   </Router>,
   document.getElementById('root')
 );

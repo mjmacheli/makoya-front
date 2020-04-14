@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { useHistory } from 'react-router-dom'
+
 import './Login.scss'
 
 import { Input, Button, Form, Container } from 'semantic-ui-react'
@@ -19,9 +21,12 @@ const Login = () => {
   
   const validateForm = () => username.length > 0 && password.length > 0
   
-  const nextPage = () => {
-    window.location = '/dashboard'
-  }
+  let history = useHistory()
+
+  const nextPage = (data) => history.push({
+    pathname:'/company',
+    state: {company:data}
+  })
 
   const sendData = async () => {
       const response = await fetch(url, {
@@ -34,7 +39,7 @@ const Login = () => {
       })
       const data =  await response.json()
       localStorage.setItem('token', data.token)
-      data.token &&  nextPage()
+      data.token &&  nextPage(data)
   }
 
   return (
