@@ -1,5 +1,14 @@
 .searchBar {
-    padding-top: 2em !important;
-    text-align: center !important;
+    padding-top: 2em;
+    // text-align: center !important;
     margin: auto;
+}
+
+.midBar {
+    padding-top: 2em;
+    align-content: center;
+}
+
+.ui.centered.grid {
+    justify-content: space-evenly;
 }

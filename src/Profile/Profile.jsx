@@ -11,10 +11,8 @@ const Profile = ({location}) => {
   const { result } = location['state']
   
   return (
-
-    <Grid  centered columns='equal'>
-      <Grid.Column width={8}>
-      <Company className='searchBar'/>
+    <Fragment>
+      <Company className='midBar'/>
       <Card 
       centered 
       raised 
@@ -37,9 +35,7 @@ const Profile = ({location}) => {
           </a>
       </Card.Content>
       </Card>
-   
-    </Grid.Column>
-    </Grid>
+    </Fragment>
   )
 }
 
