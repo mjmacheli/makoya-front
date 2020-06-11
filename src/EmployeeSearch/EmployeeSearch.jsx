@@ -72,6 +72,7 @@ const EmployeeSearch = (props) => {
               className='searchBar' 
               size='massive' 
               centered='true'
+              minCharacters={3}
               selectFirstResult
               placeholder={`search in ${company.title}`}
               onResultSelect={handleResultSelect}

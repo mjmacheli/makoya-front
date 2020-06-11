@@ -92,6 +92,7 @@ const Company = (props) => {
             size='massive' 
             centered='true'
             placeholder='search company'
+            minCharacters={2}
             onResultSelect={handleResultSelect}
             onSearchChange={_.debounce(handleSearchChange, 500, {
               leading: true,
