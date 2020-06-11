@@ -22,10 +22,10 @@ const Profile = ({location}) => {
         <Card.Content>
           <Card.Header>{result.title}</Card.Header>
           <Card.Meta>
-            <span className='date'>Joined in 2015</span>
+            <span className='date'>Mechanic</span>
           </Card.Meta>
           <Card.Description>
-            Matthew is a musician living in Nashville.
+            Mechanic from eskom, Who fixes things
           </Card.Description>
         </Card.Content>
       </Card>
