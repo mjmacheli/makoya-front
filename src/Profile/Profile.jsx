@@ -28,12 +28,6 @@ const Profile = ({location}) => {
             Matthew is a musician living in Nashville.
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <a>
-            <Icon name='user' />
-            22 Friends
-          </a>
-      </Card.Content>
       </Card>
     </Fragment>
   )
