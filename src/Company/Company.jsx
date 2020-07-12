@@ -10,7 +10,7 @@ import './Company.scss'
 
 let source = []
 
-_.times(100, () => {
+_.times(100, (i) => {
   fetch(`https://gentle-savannah-90866.herokuapp.com/user/companies`, {
     method: 'POST',
     mode: 'cors',

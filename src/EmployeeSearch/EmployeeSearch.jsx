@@ -20,9 +20,7 @@ const EmployeeSearch = (props) => {
 
   const { employees } = state
 
-  const source = _.times(250, (i) => {
-    return employees[i]
-  })
+  const source = employees
   
   const [ isLoading, setIsLoading ] = useState(initialState.isLoading)
 
@@ -52,12 +50,8 @@ const EmployeeSearch = (props) => {
       )
 
       const re = new RegExp(_.escapeRegExp(value), 'i')
-
       const isMatch = (result) => re.test(result.title)
-
       setIsLoading(false)
-
-      console.log('length = = ' + source.length)
       setResults(_.filter(source, isMatch))
 
     }, 300)
