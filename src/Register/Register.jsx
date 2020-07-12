@@ -10,11 +10,15 @@ const Register = () => {
 
     const [ password, setPassword] = useState('')
 
+    const [ confirm, setConfirm ] = useState('')
+
+    const [ exists, setExists ] = useState(false)
+
     let history = useHistory()
 
     const url = `https://gentle-savannah-90866.herokuapp.com/user/register`
     
-    const validateForm = () => username.length > 0 && password.length > 0
+    const validateForm = () => username.length > 0 && password.length > 0 && (confirm === password)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -37,12 +41,25 @@ const Register = () => {
         })
         const data = await response.json()
         response.status === 201 && nextPage(data)
+        response.status === 409 && setExists(true)
     }
 
     return (
     <Container as='fieldset' className='loginContainer'>
        <legend><h1>Register</h1></legend>
       <Form onSubmit={handleSubmit} >
+
+      <Form.Field required >
+          <label>Full Names</label>
+          <Input placeholder='fullname'
+            icon='user' iconPosition='left' />
+        </Form.Field>
+
+        <Form.Field required >
+          <label>Phone Number</label>
+          <Input placeholder='phone number'
+            icon='phone' iconPosition='left' />
+        </Form.Field>
 
         <Form.Field required >
           <label>Username</label>
@@ -69,9 +86,18 @@ const Register = () => {
             iconPosition='left' 
             placeholder='Confirm Password'
             type='password'
+            onChange={e => setConfirm(e.target.value)}
           />
         </Form.Field>
-        <Button className='loginBtn' toggle fluid type='submit' disabled={!validateForm()}>Register</Button>
+        { ((password.length > 2) && (confirm !== password)) && <p style={{color: 'red'}}>passwords do not match</p>}
+        { exists && <p style={{color: 'red'}}>user already exists</p>}
+        <Button 
+          className='loginBtn' 
+          toggle 
+          fluid 
+          type='submit' 
+          disabled={!validateForm()}>Register</Button>
+        
         Have an account? <Link to='/login'>Login</Link>
       </Form>
     </Container>

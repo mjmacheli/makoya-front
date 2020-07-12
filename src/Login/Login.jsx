@@ -19,6 +19,8 @@ const Login = () => {
 
   const [ password, setPassword] = useState('')
 
+   const [incorrect, setError] = useState(false)
+
   const url = `https://gentle-savannah-90866.herokuapp.com/user/login`
   
   const validateForm = () => username.length > 0 && password.length > 0
@@ -40,6 +42,7 @@ const Login = () => {
         body: JSON.stringify({ username, password })
       })
       const data =  await response.json()
+      response.status === 401 && setError(true)
       localStorage.setItem('token', data.token)
       data.token &&  nextPage(data)
   }
@@ -68,6 +71,7 @@ const Login = () => {
         </Form.Field>
         <Button className='loginBtn' toggle fluid type='submit' 
           disabled={!validateForm()}>Login</Button>
+          {incorrect && <p style={{color: 'red'}}>username or password incorrect</p>}
           Don't have an account? <Link to='/register'>Register</Link>
       </Form>
     </Container>
