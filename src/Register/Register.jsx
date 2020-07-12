@@ -38,7 +38,7 @@ const Register = () => {
           body: JSON.stringify({ username, password })
         })
         const data = await response.json()
-        (response.status === 201) && nextPage(data)
+        response.status === 201 && nextPage(data)
     }
 
     return (
