@@ -68,7 +68,7 @@ const Login = () => {
         </Form.Field>
         <Button className='loginBtn' toggle fluid type='submit' 
           disabled={!validateForm()}>Login</Button>
-        Don't have an account? <Link to='/login'>Register</Link>
+        Don't have an account? <Link to='/register'>Register</Link>
       </Form>
     </Container>
   )

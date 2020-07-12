@@ -37,9 +37,10 @@ const Register = () => {
           },
           body: JSON.stringify({ username, password })
         })
-        const data =  await response.json()
-        localStorage.setItem('token', data.token)
-        data.token &&  nextPage(data)
+        //const data =  await response.json()
+        const data = await response()
+        console.log('my status ' + data.status)
+        data.status === 201 &&  nextPage(data)
     }
 
     return (
