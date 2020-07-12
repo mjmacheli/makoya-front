@@ -23,10 +23,10 @@ const Register = () => {
         sendData()
     }
 
-    const nextPage = (data) => history.push({
-        pathname:'/company',
-        state: {company:data}
-      })
+    const nextPage = (user) => history.push({
+      pathname:'/company',
+      state: {user}
+    })
 
     const sendData = async () => {
         const response = await fetch(url, {
@@ -37,10 +37,8 @@ const Register = () => {
           },
           body: JSON.stringify({ username, password })
         })
-        // const data =  await response.json()
-        const data = await response
-        console.log('my status ' + data.status)
-        nextPage(data)
+        const data = await response.json()
+        (response.status === 201) && nextPage(data)
     }
 
     return (
