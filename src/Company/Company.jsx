@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 
 import { useHistory } from 'react-router-dom'
 
-import { Search, Grid, Container } from 'semantic-ui-react'
+import { Search, Container } from 'semantic-ui-react'
 
 import './Company.scss'
 
@@ -82,29 +82,25 @@ const Company = (props) => {
   }
 
   return (
-      <Grid centered columns='equal'>        
-        <Grid.Column width={8}>
-        <Container text>
-          <Search
-            fluid
-            selectFirstResult
-            loading={isLoading}
-            className='centerSearch' 
-            size='massive' 
-            centered='true'
-            placeholder='search company'
-            minCharacters={2}
-            onResultSelect={handleResultSelect}
-            onSearchChange={_.debounce(handleSearchChange, 500, {
-              leading: true,
-            })}       
-            results={results}  
-            value={value}
-            {...props}
-          />
-          </Container>
-        </Grid.Column>        
-      </Grid>
+    <Container text>
+      <Search
+        fluid
+        selectFirstResult
+        loading={isLoading}
+        className='centerSearch' 
+        size='massive' 
+        centered='true'
+        placeholder='search company'
+        minCharacters={2}
+        onResultSelect={handleResultSelect}
+        onSearchChange={_.debounce(handleSearchChange, 500, {
+          leading: true,
+        })}       
+        results={results}  
+        value={value}
+        {...props}
+      />
+    </Container>
   )
 }
 

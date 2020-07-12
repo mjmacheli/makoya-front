@@ -63,29 +63,25 @@ const EmployeeSearch = (props) => {
   }
 
   return (
-    <Grid  centered columns='equal'>
-        <Grid.Column width={8}>
-          <Container text>
-            <Search
-              fluid
-              loading={isLoading}
-              className='searchBar' 
-              size='massive' 
-              centered='true'
-              minCharacters={3}
-              selectFirstResult
-              placeholder={`search in ${company.title}`}
-              onResultSelect={handleResultSelect}
-              onSearchChange={_.debounce(handleSearchChange, 500, {
-                leading: true,
-              })}
-              results={results}
-              value={value}
-              {...props}
-            />
-          </Container>
-        </Grid.Column>
-      </Grid>
+    <Container text>
+      <Search
+        fluid
+        loading={isLoading}
+        className='searchBar' 
+        size='massive' 
+        centered='true'
+        minCharacters={3}
+        selectFirstResult
+        placeholder={`search in ${company.title}`}
+        onResultSelect={handleResultSelect}
+        onSearchChange={_.debounce(handleSearchChange, 500, {
+          leading: true,
+        })}
+        results={results}
+        value={value}
+        {...props}
+      />
+    </Container>
   )
 }
 
