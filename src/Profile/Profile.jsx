@@ -4,7 +4,7 @@ import Company from '../Company/Company'
 
 import './Profile.scss';
 
-import { Card, Image, } from 'semantic-ui-react'
+import { Icon, Card, Image, } from 'semantic-ui-react'
 
 const Profile = ({location}) => {
 
@@ -22,11 +22,25 @@ const Profile = ({location}) => {
         <Card.Content>
           <Card.Header>{result.title}</Card.Header>
           <Card.Meta>
-            <span className='date'>Mechanic</span>
+          <span className='date'>{result.occupation}</span>
           </Card.Meta>
-          <Card.Description>
-            Mechanic from eskom, Who fixes things
-          </Card.Description>
+          
+            {result.gender === 'Male' &&
+              <Card.Description>
+              <Icon name='male' size='small' />
+                {result.description}
+              </Card.Description>
+            }
+            {result.gender === 'Female' &&
+              <Card.Description>
+              <Icon name='female' size='small' />
+                {result.description}
+              </Card.Description>
+            }
+              
+            
+            
+          
         </Card.Content>
       </Card>
     </Fragment>

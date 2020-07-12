@@ -46,8 +46,9 @@ const Company = (props) => {
       body: JSON.stringify({ company: result.id })
     }).then(response => response.json())
     .then((value) => {
+      console.log(value)
       value.map((val) => {
-        val['description'] = `${val['name']}  ${val['surname']}  : ${val['age']}`
+        val['description'] = `${val['name']}  ${val['surname']}`
         val['title'] = val['username']
         delete val['name']
         delete val['surname']

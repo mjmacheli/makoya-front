@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 
-import { useHistory } from 'react-router-dom'
-
-import { Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import { Input, Button, Form, Container } from 'semantic-ui-react'
 
