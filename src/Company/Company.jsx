@@ -10,7 +10,7 @@ import './Company.scss'
 
 let source = []
 
-_.times(5, () => {
+_.times(100, () => {
   fetch(`https://gentle-savannah-90866.herokuapp.com/user/companies`, {
     method: 'POST',
     mode: 'cors',
@@ -46,7 +46,6 @@ const Company = (props) => {
       body: JSON.stringify({ company: result.id })
     }).then(response => response.json())
     .then((value) => {
-      console.log(value)
       value.map((val) => {
         val['description'] = `${val['name']}  ${val['surname']}`
         val['title'] = val['username']

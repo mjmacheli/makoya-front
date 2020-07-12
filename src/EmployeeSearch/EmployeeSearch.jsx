@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 
 import { useHistory } from 'react-router-dom'
 
-import { Search, Grid, Container } from 'semantic-ui-react'
+import { Search, Container } from 'semantic-ui-react'
 
 import './EmployeeSearch.scss'
 
@@ -20,7 +20,7 @@ const EmployeeSearch = (props) => {
 
   const { employees } = state
 
-  const source = _.times(15, (i) => {
+  const source = _.times(250, (i) => {
     return employees[i]
   })
   
@@ -57,6 +57,7 @@ const EmployeeSearch = (props) => {
 
       setIsLoading(false)
 
+      console.log('length = = ' + source.length)
       setResults(_.filter(source, isMatch))
 
     }, 300)
