@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { useHistory } from 'react-router-dom'
 
+import { Link } from 'react-router-dom'
+
 import './Login.scss'
 
 import { Input, Button, Form, Container } from 'semantic-ui-react'
@@ -64,7 +66,9 @@ const Login = () => {
             onChange={e => setPassword(e.target.value)}
           />
         </Form.Field>
-        <Button  className='loginBtn' toggle fluid type='submit' disabled={!validateForm()}>Login</Button>
+        <Button className='loginBtn' toggle fluid type='submit' 
+          disabled={!validateForm()}>Login</Button>
+        Don't have an account? <Link to='/login'>Register</Link>
       </Form>
     </Container>
   )

@@ -4,7 +4,7 @@ import Company from '../Company/Company'
 
 import './Profile.scss';
 
-import { Card, Icon, Image, Grid } from 'semantic-ui-react'
+import { Card, Image, } from 'semantic-ui-react'
 
 const Profile = ({location}) => {
 
